@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyText
+  student: one
+  company: one
+  room: one
+
+two:
+  message: MyText
+  student: two
+  company: two
+  room: two
