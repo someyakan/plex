@@ -53,8 +53,8 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
 1. リポジトリをクローンします。
 
    ```bash
-   git clone https://github.com/yourusername/intern-matching-service.git
-   cd intern-matching-service
+   git clone https://github.com/someyakan/plex.git
+   cd plex
 
 2. バックエンドの依存関係をインストールする
     ```bash 
