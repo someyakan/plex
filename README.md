@@ -81,3 +81,28 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
     ```bash
     cd scout-frontend
     npm run dev
+
+###　表示されているが実装できなかった機能
+
+企業のmypageの生徒へのメッセージ
+
+
+
+企業のmypageから飛べる学生の個人へ送るメッセージ
+
+学生のmypageのあなたへのメッセージ
+
+##　勉強や参考にしたもの
+
+- railsの勉強　https://railsguides.jp/getting_started.html
+- railsとnext.jsの勉強　https://www.youtube.com/@programming_tutorial_youtube
+
+- next.jsの勉強　https://nextjs.org/docs
+- next.jsの勉強２　https://www.shoeisha.co.jp/book/detail/9784798184678
+
+
+
+- dm機能 https://zenn.dev/goldsaya/articles/71758cf3024dc1
+
+
+- README.mdの書き方　https://qiita.com/koeri3/items/f85a617dcb6efebb2cab
