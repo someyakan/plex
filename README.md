@@ -57,9 +57,9 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
    cd intern-matching-service
 
 2. バックエンドの依存関係をインストールする
-
-cd backend
-bundle install
+    ```bash 
+    cd backend
+    bundle install
 
 3. フロントエンドの依存関係をインストールします。
 
