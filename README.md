@@ -58,24 +58,24 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
 
 2. バックエンドの依存関係をインストールする
     ```bash 
-    cd backend
+    cd scout_api
     bundle install
 
 3. フロントエンドの依存関係をインストールします。
-
-cd frontend
-npm install
+    ```bash
+    cd scout-frontend
+    npm install
 
 4. データベースをセットアップします
-
-cd backend
-bin/rails db:create
-bin/rails db:migrate
+    ```bash
+    cd scout_api
+    bin/rails db:create
+    bin/rails db:migrate
 
 5. サーバーを起動します。
 バックエンド:
-            cd backend
+            cd scout_api
             bin/rails s -p 3001
 フロントエンド:
-            cd frontend
+            cd scout-frontend
             npm run dev
