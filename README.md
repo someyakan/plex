@@ -42,9 +42,9 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
 - Ruby  3.4.3
 - Rails 8.0.2
 - Node.js （インストール）
-    node v22.14.0
-    npm  10.9.2
-    npx  10.9.2
+    - node v22.14.0
+    - npm  10.9.2
+    - npx  10.9.2
 - PostgreSQL
 
 
