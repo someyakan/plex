@@ -73,11 +73,10 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
     bin/rails db:migrate
 
 5. サーバーを起動します。
-```bash
-バックエンド:
+5.1. バックエンド:```bash
             cd scout_api
             bin/rails s -p 3001
 
-フロントエンド:
+5.2.フロントエンド:```bash
             cd scout-frontend
             npm run dev
