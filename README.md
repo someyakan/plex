@@ -92,7 +92,7 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
 
 学生のmypageのあなたへのメッセージ
 
-##　勉強や参考にしたもの
+###　勉強や参考にしたもの
 
 - railsの勉強　https://railsguides.jp/getting_started.html
 - railsとnext.jsの勉強　https://www.youtube.com/@programming_tutorial_youtube
