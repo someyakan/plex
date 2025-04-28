@@ -17,12 +17,10 @@
 
 - プロフィール作成・編集
 
-- 企業からのメッセージの受信 途中
+- 企業からのメッセージの受信（※作成途中）
 
-- dm機能　自分には難しすぎたため断念
-rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
-そこを削除してしまうと他にエラーが出てしまう可能性があるので触れられていない
-
+- DM機能 → 難易度が高く断念
+（rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、削除するとエラーの可能性があるため、現状維持）
 
 
 ### 企業側
@@ -31,7 +29,7 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
 
 - 登録してる学生の一覧の閲覧 
 
-- 学生へのメッセージ　途中
+- 学生へのメッセージ送信（※作成途中）
 
 
 
@@ -81,6 +79,8 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
     ```bash
     cd scout-frontend
     npm run dev
+
+
 
 ###　表示されているが実装できなかった機能
 
