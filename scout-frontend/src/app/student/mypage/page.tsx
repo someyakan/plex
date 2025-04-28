@@ -28,6 +28,7 @@ export default function StudentMypage() {
   // 自分のRoomsを取得
   useEffect(() => {
     if (student) {
+      console.log('学生情報:', student);  // 学生情報の確認
       fetch(`http://localhost:3001/api/v1/students/${student.id}/rooms`)
         .then(res => res.json())
         .then(data => {
@@ -38,6 +39,10 @@ export default function StudentMypage() {
         })
     }
   }, [student])
+
+  useEffect(() => {
+    console.log('roomsの状態:', rooms); // roomsの中身を確認
+  }, [rooms]);  // roomsの変更を監視
 
   if (!student) return <p className="p-8">読み込み中...</p>
 
