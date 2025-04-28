@@ -48,4 +48,34 @@ rooms_controllerやmodelsのentry.rbとroom.rbなど作成したが、
 - PostgreSQL
 
 
+### インストール手順
 
+1. リポジトリをクローンします。
+
+   ```bash
+   git clone https://github.com/yourusername/intern-matching-service.git
+   cd intern-matching-service
+
+2. バックエンドの依存関係をインストールする
+
+cd backend
+bundle install
+
+3. フロントエンドの依存関係をインストールします。
+
+cd frontend
+npm install
+
+4. データベースをセットアップします
+
+cd backend
+bin/rails db:create
+bin/rails db:migrate
+
+5. サーバーを起動します。
+バックエンド:
+            cd backend
+            bin/rails s -p 3001
+フロントエンド:
+            cd frontend
+            npm run dev
