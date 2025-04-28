@@ -3,6 +3,22 @@ module Api
     class StudentsController < ApplicationController
       before_action :set_student, only: [:update, :mypage]
 
+      # GET /api/v1/students
+      def index
+        students = Student.all
+        render json: students, status: :ok
+      end
+
+      # GET /api/v1/students/:id
+      def show
+        @student = Student.find_by(id: params[:id])  # IDに基づいて学生を検索
+        if @student
+          render json: @student
+        else
+          render json: { error: 'Student not found' }, status: :not_found
+        end
+      end
+
       # POST /api/v1/students
       def create
         student = Student.new(student_params)
@@ -24,9 +40,17 @@ module Api
 
       # GET /api/v1/students/:id/mypage
       def mypage
-        student = Student.find(params[:id])
-        companies = student.company_rooms # この部分で企業に関連する情報を取得
-        render json: companies
+        # 学生に関連する企業情報を取得
+        companies = @student.company_rooms.includes(:company).map do |room|
+          {
+            company_id: room.company.id,
+            company_name: room.company.name,
+            room_id: room.id,
+            messages: room.messages.includes(:student).map { |message| { content: message.content, sent_at: message.created_at } }
+          }
+        end
+
+        render json: { companies: companies }, status: :ok
       end
 
       private

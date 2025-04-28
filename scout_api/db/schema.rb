@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_27_113936) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_28_034705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -21,17 +21,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_27_113936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "profile"
-  end
-
-  create_table "entries", force: :cascade do |t|
-    t.bigint "student_id"
-    t.bigint "company_id"
-    t.bigint "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_entries_on_company_id"
-    t.index ["room_id"], name: "index_entries_on_room_id"
-    t.index ["student_id"], name: "index_entries_on_student_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -62,9 +51,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_27_113936) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "entries", "companies"
-  add_foreign_key "entries", "rooms"
-  add_foreign_key "entries", "students"
   add_foreign_key "messages", "companies"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "students"

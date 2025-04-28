@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 export default function StudentMypage() {
   const router = useRouter()
   const [student, setStudent] = useState<any>(null)
+  const [messages, setMessages] = useState<any[]>([])
   const [rooms, setRooms] = useState<any[]>([])
 
   // 学生情報の読み込み
@@ -28,7 +29,7 @@ export default function StudentMypage() {
   // 自分のRoomsを取得
   useEffect(() => {
     if (student) {
-      console.log('学生情報:', student);  // 学生情報の確認
+      console.log('学生情報:', student)  // 学生情報の確認
       fetch(`http://localhost:3001/api/v1/students/${student.id}/rooms`)
         .then(res => res.json())
         .then(data => {
@@ -40,9 +41,24 @@ export default function StudentMypage() {
     }
   }, [student])
 
+  // メッセージの取得
   useEffect(() => {
-    console.log('roomsの状態:', rooms); // roomsの中身を確認
-  }, [rooms]);  // roomsの変更を監視
+    if (student) {
+      fetch(`/api/v1/students/${student.id}/mypage`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("token")}`, // トークンで認証
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => setMessages(data))
+        .catch((error) => console.error(error))
+    }
+  }, [student])
+
+  useEffect(() => {
+    console.log('roomsの状態:', rooms)  // roomsの中身を確認
+  }, [rooms])  // roomsの変更を監視
 
   if (!student) return <p className="p-8">読み込み中...</p>
 
@@ -72,7 +88,6 @@ export default function StudentMypage() {
       })
 
       if (!response.ok) {
-        // const errorData = await response.json() // エラーレスポンスを取得
         const errorText = await response.text();
         console.error('エラー内容:', errorText)
         throw new Error('ルーム作成に失敗しました')
@@ -137,6 +152,22 @@ export default function StudentMypage() {
           </ul>
         ) : (
           <p>まだDMはありません。</p>
+        )}
+      </section>
+
+      {/* メッセージ一覧 */}
+      <section className="mt-12">
+        <h2 className="text-xl font-bold mb-4">あなたのメッセージ</h2>
+        {messages.length > 0 ? (
+          <ul className="space-y-4">
+            {messages.map((message) => (
+              <li key={message.id} className="border p-4 rounded shadow">
+                <strong>{message.company.name}</strong>: {message.content}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>メッセージはありません。</p>
         )}
       </section>
     </main>
